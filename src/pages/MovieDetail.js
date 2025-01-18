@@ -5,18 +5,18 @@ import { useTitle } from "../hooks/useTitle";
 export const MovieDetail = () => {
   const params = useParams();
   const [movie, setMovie] = useState({});
-  const url = `https://api.themoviedb.org/3/movie/${params.id}?api_key=5b00bd6677b37c68a8b76819860033fc`;
+  //const url = `https://api.themoviedb.org/3/movie/${params.id}?api_key=5b00bd6677b37c68a8b76819860033fc`;
   const image = movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : Backup;
 
   useEffect(() => {
     async function fetchMovie() {
-      const response = await fetch(url);
+      const response = await fetch(`https://api.themoviedb.org/3/movie/${params.id}?api_key=5b00bd6677b37c68a8b76819860033fc`);
       const json = await response.json()
       console.log(json);
       setMovie(json);
     }
     fetchMovie();
-  }, [url])
+  }, [params.id])
 
 
   useTitle(`${movie.title}`);

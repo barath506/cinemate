@@ -1,7 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 import { Card } from "../components/Card";
-import { useEffect } from "react";
 import { useTitle } from "../hooks/useTitle";
 
 export const Search = ({ apiPath }) => {
@@ -15,7 +14,7 @@ export const Search = ({ apiPath }) => {
     <main>
       <section className="py-7">
         <p className="text-3xl text-gray-700 dark:text-white">
-            {movies.length ==  0 ? `No result found for '${queryTerm}'`: `Result for '${queryTerm}'`}
+            {movies.length ===  0 ? `No result found for '${queryTerm}'`: `Result for '${queryTerm}'`}
         </p>
       </section>
       <section className="max-w-7xl mx-auto py-7">
